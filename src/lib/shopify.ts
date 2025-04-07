@@ -6,7 +6,11 @@ const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_
 
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
   try {
-    const result = await fetch(`https://${domain}/api/2023-10/graphql.json`, {
+    // Log the request information for debugging
+    console.log('Shopify API Request URL:', `https://${domain}/api/2024-01/graphql.json`);
+    console.log('Using access token:', storefrontAccessToken ? 'Token exists' : 'No token provided');
+    
+    const result = await fetch(`https://${domain}/api/2024-01/graphql.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -15,9 +19,17 @@ const shopifyFetch = async ({ query, variables }: { query: string; variables?: a
       body: JSON.stringify({ query, variables }),
     });
     
+    const responseBody = await result.json();
+    
+    // Log the response for debugging
+    console.log('Shopify API Response Status:', result.status);
+    if (result.status !== 200) {
+      console.log('Shopify API Response Errors:', responseBody.errors);
+    }
+    
     return {
       status: result.status,
-      body: await result.json(),
+      body: responseBody,
     };
   } catch (error) {
     console.error('Error fetching data from Shopify:', error);
