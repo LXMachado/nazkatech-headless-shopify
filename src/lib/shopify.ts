@@ -4,29 +4,62 @@ import { Product, ProductVariant, Collection, CartItem } from '@/types';
 const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '').trim();
 const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 const storePassword = process.env.SHOPIFY_STORE_PASSWORD || '';
+const apiKey = process.env.SHOPIFY_API_KEY || '';
+const apiSecret = process.env.SHOPIFY_API_SECRET || '';
 
+// For debugging
+console.log('Environment check:');
+console.log('Domain configured:', domain || 'Not set');
+console.log('Access token available:', storefrontAccessToken ? 'Yes' : 'No');
+console.log('API key available:', apiKey ? 'Yes' : 'No');
+console.log('API secret available:', apiSecret ? 'Yes' : 'No');
+console.log('Store password available:', storePassword ? 'Yes' : 'No');
+
+// Try multiple auth strategies
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
   try {
-    // Set up the API URL (without credentials in the URL)
+    // Set up the API URL - try using the Storefront API specifically
     const apiUrl = `https://${domain}/api/2024-01/graphql.json`;
     
-    // Prepare headers with authentication
+    // For admin API access we would use:
+    // const apiUrl = `https://${domain}/admin/api/2024-01/graphql.json`;
+    
+    // Prepare headers with authentication - we'll try multiple approaches
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
     };
     
-    // For password-protected stores, add HTTP basic auth header
-    if (storePassword) {
+    // Try a combination of authentication approaches
+    
+    // Option 1: Use the Storefront API token for public apps
+    // This is already set in the headers above
+    
+    // Option 2: For private apps or admin API
+    if (apiKey && apiSecret) {
+      console.log('Using private app authentication');
+      // For private app authentication, we use the API key as the username
+      // and the password as the API secret/private app password
+      const base64PrivateAppCredentials = Buffer.from(`${apiKey}:${apiSecret}`).toString('base64');
+      headers['Authorization'] = `Basic ${base64PrivateAppCredentials}`;
+      
+      // Remove the storefront token if we're using private app auth
+      delete headers['X-Shopify-Storefront-Access-Token'];
+    }
+    
+    // Option 3: For password-protected storefronts
+    else if (storePassword) {
       console.log('Using password-protected store access');
-      // Base64 encode the password (this is for HTTP Basic Authentication)
-      const base64Credentials = Buffer.from(`${storePassword}:`).toString('base64');
-      headers['Authorization'] = `Basic ${base64Credentials}`;
+      // Base64 encode the credentials (HTTP Basic Authentication)
+      // For storefront password protection, no username is needed
+      const base64StoreCredentials = Buffer.from(`${storePassword}:`).toString('base64');
+      headers['Authorization'] = `Basic ${base64StoreCredentials}`;
     }
     
     // Log the request information for debugging (safely)
     console.log('Shopify API Request URL:', apiUrl);
     console.log('Using access token:', storefrontAccessToken ? 'Token exists' : 'No token provided');
+    console.log('Using API key:', apiKey ? 'Yes' : 'No');
     console.log('Password protected:', storePassword ? 'Yes' : 'No');
     
     const result = await fetch(apiUrl, {
