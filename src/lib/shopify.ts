@@ -7,26 +7,31 @@ const storePassword = process.env.SHOPIFY_STORE_PASSWORD || '';
 
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
   try {
-    // Create API URL with password if available
-    let apiUrl = `https://${domain}/api/2024-01/graphql.json`;
+    // Set up the API URL (without credentials in the URL)
+    const apiUrl = `https://${domain}/api/2024-01/graphql.json`;
+    
+    // Prepare headers with authentication
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
+    };
+    
+    // For password-protected stores, add HTTP basic auth header
     if (storePassword) {
-      // For password-protected storefronts
-      const storeDomainWithoutHttps = domain.replace(/^https?:\/\//, '');
-      apiUrl = `https://${storePassword}@${storeDomainWithoutHttps}/api/2024-01/graphql.json`;
       console.log('Using password-protected store access');
+      // Base64 encode the password (this is for HTTP Basic Authentication)
+      const base64Credentials = Buffer.from(`${storePassword}:`).toString('base64');
+      headers['Authorization'] = `Basic ${base64Credentials}`;
     }
     
-    // Log the request information for debugging
-    console.log('Shopify API Request URL:', apiUrl.replace(/\/\/.*?@/, '//***@')); // Hide password in logs
+    // Log the request information for debugging (safely)
+    console.log('Shopify API Request URL:', apiUrl);
     console.log('Using access token:', storefrontAccessToken ? 'Token exists' : 'No token provided');
     console.log('Password protected:', storePassword ? 'Yes' : 'No');
     
     const result = await fetch(apiUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
-      },
+      headers,
       body: JSON.stringify({ query, variables }),
     });
     
