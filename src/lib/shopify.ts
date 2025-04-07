@@ -1,6 +1,7 @@
 import { Product, ProductVariant, Collection, CartItem } from '@/types';
 
-const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '';
+// Trim any spaces from the domain to prevent URL parsing errors
+const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '').trim();
 const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
