@@ -3,14 +3,25 @@ import { Product, ProductVariant, Collection, CartItem } from '@/types';
 // Trim any spaces from the domain to prevent URL parsing errors
 const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '').trim();
 const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
+const storePassword = process.env.SHOPIFY_STORE_PASSWORD || '';
 
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
   try {
-    // Log the request information for debugging
-    console.log('Shopify API Request URL:', `https://${domain}/api/2024-01/graphql.json`);
-    console.log('Using access token:', storefrontAccessToken ? 'Token exists' : 'No token provided');
+    // Create API URL with password if available
+    let apiUrl = `https://${domain}/api/2024-01/graphql.json`;
+    if (storePassword) {
+      // For password-protected storefronts
+      const storeDomainWithoutHttps = domain.replace(/^https?:\/\//, '');
+      apiUrl = `https://${storePassword}@${storeDomainWithoutHttps}/api/2024-01/graphql.json`;
+      console.log('Using password-protected store access');
+    }
     
-    const result = await fetch(`https://${domain}/api/2024-01/graphql.json`, {
+    // Log the request information for debugging
+    console.log('Shopify API Request URL:', apiUrl.replace(/\/\/.*?@/, '//***@')); // Hide password in logs
+    console.log('Using access token:', storefrontAccessToken ? 'Token exists' : 'No token provided');
+    console.log('Password protected:', storePassword ? 'Yes' : 'No');
+    
+    const result = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
