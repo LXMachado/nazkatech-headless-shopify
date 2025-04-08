@@ -13,7 +13,7 @@ console.log('Access token available:', storefrontAccessToken ? 'Yes' : 'No');
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
   try {
     // Set up the API URL for the Storefront API
-    const apiUrl = `https://${domain}/api/2024-01/graphql.json`;
+    const apiUrl = `https://${domain}/api/2024-04/graphql.json`;
     
     // Prepare headers with Storefront API authentication
     const headers: Record<string, string> = {
