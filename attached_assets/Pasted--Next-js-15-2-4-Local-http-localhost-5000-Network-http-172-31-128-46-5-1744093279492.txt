@@ -1,0 +1,51 @@
+ ▲ Next.js 15.2.4
+   - Local:        http://localhost:5000
+   - Network:      http://172.31.128.46:5000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1540ms
+ ⚠ Cross origin request detected from fbd61e07-3f94-4a4f-b42f-33acc29505a5-00-3c9f2c6a7xgft.worf.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4.7s (497 modules)
+Environment check:
+Domain configured: <?xml version='1.0' encoding='UTF-8'?><Error><Code>ExpiredToken</Code><Message>Invalid argument.</Message><Details>The provided token has expired. Request signature expired at: 2025-04-07T20:42:37+00:00</Details></Error>
+Access token available: Yes
+ ✓ Compiled in 180ms (298 modules)
+ GET /_next/static/webpack/e76d34b1acc9d17e.webpack.hot-update.json 404 in 5330ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ○ Compiling / ...
+ ✓ Compiled / in 833ms (513 modules)
+Environment check:
+Domain configured: <?xml version='1.0' encoding='UTF-8'?><Error><Code>ExpiredToken</Code><Message>Invalid argument.</Message><Details>The provided token has expired. Request signature expired at: 2025-04-07T20:42:37+00:00</Details></Error>
+Access token available: Yes
+Shopify API Request URL: https://<?xml version='1.0' encoding='UTF-8'?><Error><Code>ExpiredToken</Code><Message>Invalid argument.</Message><Details>The provided token has expired. Request signature expired at: 2025-04-07T20:42:37+00:00</Details></Error>/api/2024-01/graphql.json
+Error fetching data from Shopify: TypeError: Failed to parse URL from https://<?xml version='1.0' encoding='UTF-8'?><Error><Code>ExpiredToken</Code><Message>Invalid argument.</Message><Details>The provided token has expired. Request signature expired at: 2025-04-07T20:42:37+00:00</Details></Error>/api/2024-01/graphql.json
+    at async shopifyFetch (src/lib/shopify.ts:27:19)
+    at async getAllProducts (src/lib/shopify.ts:97:19)
+    at async getStaticProps (src/pages/index.tsx:35:19)
+  25 |     console.log('Shopify API Request URL:', apiUrl);
+  26 |     
+> 27 |     const result = await fetch(apiUrl, {
+     |                   ^
+  28 |       method: 'POST',
+  29 |       headers,
+  30 |       body: JSON.stringify({ query, variables }), {
+  [cause]: TypeError: Invalid URL
+      at shopifyFetch (src/lib/shopify.ts:27:25)
+      at getAllProducts (src/lib/shopify.ts:97:25)
+      at getStaticProps (src/pages/index.tsx:35:39)
+    25 |     console.log('Shopify API Request URL:', apiUrl);
+    26 |     
+  > 27 |     const result = await fetch(apiUrl, {
+       |                         ^
+    28 |       method: 'POST',
+    29 |       headers,
+    30 |       body: JSON.stringify({ query, variables }), {
+    code: 'ERR_INVALID_URL',
+    input: "https://<?xml version='1.0' encoding='UTF-8'?><Error><Code>ExpiredToken</Code><Message>Invalid argument.</Message><Details>The provided token has expired. Request signature expired at: 2025-04-07T20:42:37+00:00</Details></Error>/api/2024-01/graphql.json"
+  }
+}
+Error fetching products: [ { message: 'Error fetching data from Shopify' } ]
+ GET / 200 in 1464ms
