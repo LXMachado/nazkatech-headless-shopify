@@ -3,23 +3,33 @@ import { Product, ProductVariant, Collection, CartItem } from '@/types';
 // Trim any spaces from the domain to prevent URL parsing errors
 const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '').trim();
 const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
+const apiKey = process.env.SHOPIFY_API_KEY || '';
+const apiSecret = process.env.SHOPIFY_API_SECRET || '';
 
 // For debugging
 console.log('Environment check:');
 console.log('Domain configured:', domain || 'Not set');
 console.log('Access token available:', storefrontAccessToken ? 'Yes' : 'No');
+console.log('API Key available:', apiKey ? 'Yes' : 'No');
+console.log('API Secret available:', apiSecret ? 'Yes' : 'No');
 
-// Simple API fetch function using only the Storefront Access Token
+// API fetch function with multiple auth options
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
   try {
-    // Set up the API URL for the Storefront API
-    const apiUrl = `https://${domain}/api/2024-04/graphql.json`;
+    // Set up the API URL for the Storefront API (using 2023-07 version as it's known to be stable)
+    const apiUrl = `https://${domain}/api/2023-07/graphql.json`;
     
-    // Prepare headers with Storefront API authentication
+    // We'll use both authentication methods in the headers to see which one works
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
     };
+    
+    // Add basic auth if available
+    if (apiKey && apiSecret) {
+      const basicAuth = Buffer.from(`${apiKey}:${apiSecret}`).toString('base64');
+      headers['Authorization'] = `Basic ${basicAuth}`;
+    }
     
     // Log the request information for debugging (safely)
     console.log('Shopify API Request URL:', apiUrl);
