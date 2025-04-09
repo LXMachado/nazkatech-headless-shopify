@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Image from 'next/image';
 import { getAllProducts, getProductByHandle } from '@/lib/shopify';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
@@ -57,22 +56,18 @@ export default function ProductPage({ product }: ProductPageProps) {
           <div className="relative rounded-2xl overflow-hidden bg-soft-cream-50">
             {product.images && product.images.length > 0 ? (
               <div className="aspect-w-1 aspect-h-1">
-                <Image 
+                <img 
                   src={product.images[0].url} 
                   alt={product.images[0].altText}
-                  width={600}
-                  height={600}
-                  className="object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             ) : (
               <div className="aspect-w-1 aspect-h-1">
-                <Image 
+                <img 
                   src={product.image} 
                   alt={product.imageAlt}
-                  width={600}
-                  height={600}
-                  className="object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             )}

@@ -1,4 +1,7 @@
-<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="400" fill="#2F6538"/>
-  <text x="300" y="200" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Recycled Aluminum Laptop Stand</text>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#2D6A4F" opacity="0.2"/>
+  <path d="M100,250 L300,250 L280,200 L120,200 Z" fill="#B8B8B8"/>
+  <rect x="120" y="180" width="160" height="10" rx="5" fill="#D6D6D6"/>
+  <rect x="140" y="120" width="120" height="70" rx="5" fill="#ECECEC"/>
+  <text x="200" y="280" text-anchor="middle" font-family="Arial" font-size="16" fill="#2D6A4F">Laptop Stand</text>
 </svg>

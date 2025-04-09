@@ -1,4 +1,7 @@
-<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="400" fill="#2F6538"/>
-  <text x="300" y="200" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Bamboo Wireless Charger</text>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#2D6A4F" opacity="0.2"/>
+  <circle cx="200" cy="200" r="100" fill="#C3B88E"/>
+  <circle cx="200" cy="200" r="80" fill="#D6CAAE"/>
+  <circle cx="200" cy="200" r="30" fill="#2D6A4F" opacity="0.7"/>
+  <text x="200" y="320" text-anchor="middle" font-family="Arial" font-size="16" fill="#2D6A4F">Bamboo Wireless Charger</text>
 </svg>

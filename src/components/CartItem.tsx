@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { CartItem as CartItemType } from '@/types';
 import { useCart } from '@/context/CartContext';
@@ -30,11 +29,9 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
       {/* Product Image */}
       <Link href={`/products/${item.handle}`} className="flex-shrink-0 w-24 h-24 bg-soft-cream-50 relative">
         {item.image ? (
-          <Image 
+          <img 
             src={item.image} 
             alt={item.title}
-            width={96}
-            height={96}
             className="object-cover w-full h-full"
           />
         ) : (
