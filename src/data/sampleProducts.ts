@@ -10,7 +10,7 @@ export const sampleProducts: Product[] = [
     handle: 'biodegradable-phone-case',
     price: '29.99',
     currencyCode: 'USD',
-    image: 'https://images.unsplash.com/photo-1603313011123-458aa40f9b48?q=80&w=600&auto=format&fit=crop',
+    image: 'https://placehold.co/600x400/2F6538/FFFFFF?text=Biodegradable+Phone+Case',
     imageAlt: 'Biodegradable phone case in forest green color',
     variants: [
       {
@@ -44,7 +44,7 @@ export const sampleProducts: Product[] = [
     handle: 'solar-power-bank',
     price: '49.99',
     currencyCode: 'USD',
-    image: 'https://images.unsplash.com/photo-1620578592995-949d3c46d8a1?q=80&w=600&auto=format&fit=crop',
+    image: 'https://placehold.co/600x400/2F6538/FFFFFF?text=Solar+Power+Bank',
     imageAlt: 'Portable solar power bank with solar panel',
     variants: [
       {
@@ -71,7 +71,7 @@ export const sampleProducts: Product[] = [
     handle: 'recycled-laptop-sleeve',
     price: '34.99',
     currencyCode: 'USD',
-    image: 'https://images.unsplash.com/photo-1603384699705-08576e038d9f?q=80&w=600&auto=format&fit=crop',
+    image: 'https://placehold.co/600x400/2F6538/FFFFFF?text=Recycled+Laptop+Sleeve',
     imageAlt: 'Recycled laptop sleeve in dark green color',
     variants: [
       {
@@ -105,7 +105,7 @@ export const sampleProducts: Product[] = [
     handle: 'bamboo-wireless-charger',
     price: '39.99',
     currencyCode: 'USD',
-    image: 'https://images.unsplash.com/photo-1603301576052-607c6fecd79a?q=80&w=600&auto=format&fit=crop',
+    image: 'https://placehold.co/600x400/2F6538/FFFFFF?text=Bamboo+Wireless+Charger',
     imageAlt: 'Bamboo wireless charging pad',
     variants: [
       {
@@ -132,7 +132,7 @@ export const sampleProducts: Product[] = [
     handle: 'eco-friendly-cable-organizer',
     price: '19.99',
     currencyCode: 'USD',
-    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=600&auto=format&fit=crop',
+    image: 'https://placehold.co/600x400/2F6538/FFFFFF?text=Cable+Organizer',
     imageAlt: 'Cable organizer with multiple charging cables neatly arranged',
     variants: [
       {
@@ -159,7 +159,7 @@ export const sampleProducts: Product[] = [
     handle: 'recycled-aluminum-laptop-stand',
     price: '45.99',
     currencyCode: 'USD',
-    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=600&auto=format&fit=crop',
+    image: 'https://placehold.co/600x400/2F6538/FFFFFF?text=Laptop+Stand',
     imageAlt: 'Adjustable aluminum laptop stand holding a laptop',
     variants: [
       {

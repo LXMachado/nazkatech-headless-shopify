@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [
       'cdn.shopify.com',
       'images.unsplash.com', // For sample product images
+      'placehold.co', // For placeholder images
     ],
   },
   i18n: {
