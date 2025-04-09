@@ -1,13 +1,23 @@
 import { Product } from '@/types';
 import ProductCard from './ProductCard';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface ProductGridProps {
   products: Product[];
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
-  const isLoading = products.length === 0;
+  const [loading, setLoading] = useState(true);
+  
+  // After 3 seconds, if products is still empty, show error instead of loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   return (
     <section id="products" className="py-16 md:py-20 bg-soft-cream-50">
@@ -21,7 +31,15 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
           </p>
         </div>
         
-        {isLoading ? (
+        {products.length > 0 ? (
+          // Products are loaded successfully
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : loading ? (
+          // Show loading state
           <div className="text-center py-12">
             <div className="animate-pulse">
               <p className="text-lg text-gray-500 mb-4">Loading products...</p>
@@ -39,24 +57,18 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
             </div>
           </div>
         ) : (
-          <>
-            {products.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-                <p className="text-lg text-gray-700 mb-4">
-                  Unable to load products at this time.
-                </p>
-                <p className="text-sm text-gray-500 mb-6">
-                  Please check your Shopify connection settings or try again later.
-                </p>
-              </div>
-            )}
-          </>
+          // Show error message after loading timeout
+          <div className="text-center py-12 bg-white rounded-lg shadow-sm">
+            <p className="text-lg text-gray-700 mb-4">
+              Unable to load products at this time.
+            </p>
+            <p className="text-sm text-gray-500 mb-6">
+              Please check your Shopify connection settings or try again later.
+            </p>
+            <p className="text-xs text-red-500">
+              Error: Shopify API authentication failed
+            </p>
+          </div>
         )}
         
         {/* Show All Products Button */}

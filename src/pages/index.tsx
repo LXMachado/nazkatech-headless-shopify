@@ -32,12 +32,26 @@ export default function Home({ products }: HomePageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const products = await getAllProducts();
-  
-  return {
-    props: {
-      products: products.slice(0, 6), // Get first 6 products for the homepage
-    },
-    revalidate: 60, // Re-generate the page every 60 seconds
-  };
+  try {
+    const products = await getAllProducts();
+    
+    // For client-side rendering convenience,
+    // ensure we always return an array even if there's an error
+    return {
+      props: {
+        products: products.slice(0, 6), // Get first 6 products for the homepage
+      },
+      revalidate: 10, // Re-generate the page every 10 seconds for development
+    };
+  } catch (error) {
+    console.error('Error in getStaticProps:', error);
+    
+    // Return empty products array in case of error
+    return {
+      props: {
+        products: [],
+      },
+      revalidate: 10, // Retry sooner in case of error
+    };
+  }
 };
