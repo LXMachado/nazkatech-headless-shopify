@@ -1,4 +1,8 @@
 import { Product, ProductVariant, Collection, CartItem } from '@/types';
+import { sampleProducts, getSampleProductByHandle } from '@/data/sampleProducts';
+
+// Toggle to use sample products for development (no Shopify API connection)
+const DEVELOPMENT_MODE = true;
 
 // Trim any spaces from the domain to prevent URL parsing errors
 const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '').trim();
@@ -9,6 +13,7 @@ const storePassword = process.env.SHOPIFY_STORE_PASSWORD || '';
 
 // For debugging
 console.log('Environment check:');
+console.log('Development mode:', DEVELOPMENT_MODE ? 'Yes (using sample products)' : 'No (using Shopify API)');
 console.log('Domain configured:', domain || 'Not set');
 console.log('Access token available:', storefrontAccessToken ? 'Yes' : 'No');
 console.log('API Key available:', apiKey ? 'Yes' : 'No');
@@ -159,7 +164,15 @@ export async function getProductsFromAdminAPI(): Promise<Product[]> {
 }
 
 export async function getAllProducts(): Promise<Product[]> {
-  // First try using the Storefront API
+  // If in development mode, return sample products instead
+  if (DEVELOPMENT_MODE) {
+    console.log('Using sample products for development');
+    // Simulate API delay for more realistic development
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return sampleProducts;
+  }
+
+  // If not in development mode, try using the Storefront API
   const query = `
     query GetAllProducts {
       products(first: 100) {
@@ -296,7 +309,15 @@ export async function getProductByHandleFromAdminAPI(handle: string): Promise<Pr
 }
 
 export async function getProductByHandle(handle: string): Promise<Product | null> {
-  // First try using the Storefront API
+  // If in development mode, return sample product instead
+  if (DEVELOPMENT_MODE) {
+    console.log(`Using sample product with handle "${handle}" for development`);
+    // Simulate API delay for more realistic development
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return getSampleProductByHandle(handle);
+  }
+
+  // If not in development mode, try using the Storefront API
   const query = `
     query GetProductByHandle($handle: String!) {
       productByHandle(handle: $handle) {
@@ -380,6 +401,19 @@ export async function getProductByHandle(handle: string): Promise<Product | null
 }
 
 export async function createCheckout(cartItems: CartItem[]): Promise<string | null> {
+  // If in development mode, return fake checkout URL
+  if (DEVELOPMENT_MODE) {
+    console.log('Using sample checkout for development');
+    console.log('Cart items:', cartItems);
+    
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    // Return a fake checkout URL for development
+    return 'https://checkout.shopify.com/development-mode/sample-checkout';
+  }
+  
+  // For production mode, use the real Shopify API
   const lineItems = cartItems.map(item => ({
     variantId: item.variantId,
     quantity: item.quantity,

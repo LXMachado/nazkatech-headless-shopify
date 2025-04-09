@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.shopify.com'],
+    domains: [
+      'cdn.shopify.com',
+      'images.unsplash.com', // For sample product images
+    ],
   },
   i18n: {
     locales: ['en-US'],

@@ -1,0 +1,186 @@
+import { Product } from '@/types';
+
+// Sample products for development purposes only
+export const sampleProducts: Product[] = [
+  {
+    id: 'sample-product-1',
+    title: 'Biodegradable Phone Case',
+    description: 'Eco-friendly phone case made from biodegradable materials that provide excellent protection while being kind to the environment.',
+    descriptionHtml: '<p>Eco-friendly phone case made from biodegradable materials that provide excellent protection while being kind to the environment.</p><ul><li>Fully biodegradable</li><li>Shock-absorbent</li><li>Available for multiple phone models</li></ul>',
+    handle: 'biodegradable-phone-case',
+    price: '29.99',
+    currencyCode: 'USD',
+    image: 'https://images.unsplash.com/photo-1603313011123-458aa40f9b48?q=80&w=600&auto=format&fit=crop',
+    imageAlt: 'Biodegradable phone case in forest green color',
+    variants: [
+      {
+        id: 'sample-variant-1',
+        title: 'iPhone 14 - Forest Green',
+        price: '29.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-2',
+        title: 'iPhone 14 - Natural Beige',
+        price: '29.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-3',
+        title: 'Samsung Galaxy S23 - Forest Green',
+        price: '29.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+    ],
+  },
+  {
+    id: 'sample-product-2',
+    title: 'Solar Power Bank',
+    description: 'Portable solar power bank with high-capacity battery. Charge your devices using clean solar energy anywhere you go.',
+    descriptionHtml: '<p>Portable solar power bank with high-capacity battery. Charge your devices using clean solar energy anywhere you go.</p><ul><li>10,000 mAh capacity</li><li>Solar charging capability</li><li>2 USB ports</li><li>LED light indicator</li></ul>',
+    handle: 'solar-power-bank',
+    price: '49.99',
+    currencyCode: 'USD',
+    image: 'https://images.unsplash.com/photo-1620578592995-949d3c46d8a1?q=80&w=600&auto=format&fit=crop',
+    imageAlt: 'Portable solar power bank with solar panel',
+    variants: [
+      {
+        id: 'sample-variant-4',
+        title: '10,000 mAh - Black',
+        price: '49.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-5',
+        title: '20,000 mAh - Black',
+        price: '69.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+    ],
+  },
+  {
+    id: 'sample-product-3',
+    title: 'Recycled Laptop Sleeve',
+    description: 'Protective laptop sleeve made from recycled plastic bottles. Sleek design with soft interior to keep your laptop safe.',
+    descriptionHtml: '<p>Protective laptop sleeve made from recycled plastic bottles. Sleek design with soft interior to keep your laptop safe.</p><ul><li>Made from recycled materials</li><li>Water-resistant</li><li>Soft interior lining</li><li>Available in multiple sizes</li></ul>',
+    handle: 'recycled-laptop-sleeve',
+    price: '34.99',
+    currencyCode: 'USD',
+    image: 'https://images.unsplash.com/photo-1603384699705-08576e038d9f?q=80&w=600&auto=format&fit=crop',
+    imageAlt: 'Recycled laptop sleeve in dark green color',
+    variants: [
+      {
+        id: 'sample-variant-6',
+        title: '13-inch - Forest Green',
+        price: '34.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-7',
+        title: '15-inch - Forest Green',
+        price: '39.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-8',
+        title: '16-inch - Forest Green',
+        price: '42.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+    ],
+  },
+  {
+    id: 'sample-product-4',
+    title: 'Bamboo Wireless Charger',
+    description: 'Elegant wireless charger made from sustainable bamboo. Fast charging capabilities with a beautiful natural design.',
+    descriptionHtml: '<p>Elegant wireless charger made from sustainable bamboo. Fast charging capabilities with a beautiful natural design.</p><ul><li>Made from sustainable bamboo</li><li>15W fast charging</li><li>Compatible with Qi-enabled devices</li><li>LED indicator</li></ul>',
+    handle: 'bamboo-wireless-charger',
+    price: '39.99',
+    currencyCode: 'USD',
+    image: 'https://images.unsplash.com/photo-1603301576052-607c6fecd79a?q=80&w=600&auto=format&fit=crop',
+    imageAlt: 'Bamboo wireless charging pad',
+    variants: [
+      {
+        id: 'sample-variant-9',
+        title: 'Standard - Natural Bamboo',
+        price: '39.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-10',
+        title: 'Dual Charger - Natural Bamboo',
+        price: '59.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+    ],
+  },
+  {
+    id: 'sample-product-5',
+    title: 'Eco-Friendly Cable Organizer',
+    description: 'Keep your cables tidy with this eco-friendly cable organizer made from recycled materials. Reduces clutter while being sustainable.',
+    descriptionHtml: '<p>Keep your cables tidy with this eco-friendly cable organizer made from recycled materials. Reduces clutter while being sustainable.</p><ul><li>Made from recycled plastics</li><li>5 cable slots</li><li>Non-slip base</li><li>Compact design</li></ul>',
+    handle: 'eco-friendly-cable-organizer',
+    price: '19.99',
+    currencyCode: 'USD',
+    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=600&auto=format&fit=crop',
+    imageAlt: 'Cable organizer with multiple charging cables neatly arranged',
+    variants: [
+      {
+        id: 'sample-variant-11',
+        title: 'Small - Gray',
+        price: '19.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-12',
+        title: 'Large - Gray',
+        price: '24.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+    ],
+  },
+  {
+    id: 'sample-product-6',
+    title: 'Recycled Aluminum Laptop Stand',
+    description: 'Ergonomic laptop stand made from recycled aluminum. Improves posture and laptop cooling while being environmentally conscious.',
+    descriptionHtml: '<p>Ergonomic laptop stand made from recycled aluminum. Improves posture and laptop cooling while being environmentally conscious.</p><ul><li>Made from recycled aluminum</li><li>Adjustable height</li><li>Improves airflow</li><li>Foldable for portability</li></ul>',
+    handle: 'recycled-aluminum-laptop-stand',
+    price: '45.99',
+    currencyCode: 'USD',
+    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=600&auto=format&fit=crop',
+    imageAlt: 'Adjustable aluminum laptop stand holding a laptop',
+    variants: [
+      {
+        id: 'sample-variant-13',
+        title: 'Silver',
+        price: '45.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+      {
+        id: 'sample-variant-14',
+        title: 'Space Gray',
+        price: '45.99',
+        currencyCode: 'USD',
+        availableForSale: true,
+      },
+    ],
+  },
+];
+
+// Export single product finder function
+export function getSampleProductByHandle(handle: string): Product | null {
+  return sampleProducts.find(product => product.handle === handle) || null;
+}
