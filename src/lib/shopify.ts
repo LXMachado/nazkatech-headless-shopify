@@ -18,11 +18,21 @@ console.log('Store password available:', storePassword ? 'Yes' : 'No');
 // Admin REST API fetch function
 const shopifyAdminFetch = async (endpoint: string) => {
   try {
-    const apiUrl = `https://${apiKey}:${storePassword}@${domain}/admin/api/2023-07/${endpoint}`;
+    // Don't include credentials in URL (will cause security errors)
+    const apiUrl = `https://${domain}/admin/api/2023-07/${endpoint}`;
     
-    console.log('Shopify Admin API Request URL:', apiUrl.replace(`${apiKey}:${storePassword}@`, '***:***@'));
+    console.log('Shopify Admin API Request URL:', apiUrl);
     
-    const result = await fetch(apiUrl);
+    // Use Authorization header for Basic Auth credentials
+    const basicAuth = Buffer.from(`${apiKey}:${storePassword}`).toString('base64');
+    
+    const result = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Basic ${basicAuth}`,
+        'Content-Type': 'application/json'
+      }
+    });
     
     const responseBody = await result.json();
     
@@ -30,6 +40,8 @@ const shopifyAdminFetch = async (endpoint: string) => {
     console.log('Shopify Admin API Response Status:', result.status);
     if (result.status !== 200) {
       console.log('Shopify Admin API Response Error:', responseBody);
+    } else {
+      console.log('Shopify Admin API Success! Response contains data.');
     }
     
     return {

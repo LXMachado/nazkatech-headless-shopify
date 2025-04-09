@@ -1,11 +1,14 @@
 import { Product } from '@/types';
 import ProductCard from './ProductCard';
+import Link from 'next/link';
 
 interface ProductGridProps {
   products: Product[];
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
+  const isLoading = products.length === 0;
+  
   return (
     <section id="products" className="py-16 md:py-20 bg-soft-cream-50">
       <div className="container-custom">
@@ -18,36 +21,49 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
           </p>
         </div>
         
-        {products.length === 0 ? (
+        {isLoading ? (
           <div className="text-center py-12">
-            <p className="text-lg text-gray-500">Loading products...</p>
+            <div className="animate-pulse">
+              <p className="text-lg text-gray-500 mb-4">Loading products...</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <div key={`loading-${index}`} className="bg-white p-6 rounded-2xl shadow-sm">
+                    <div className="aspect-w-1 aspect-h-1 bg-gray-200 rounded-xl mb-4 h-48"></div>
+                    <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
+                    <div className="h-10 bg-gray-200 rounded"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Display first 3 products or all if less than 3 */}
-            {products.slice(0, 3).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-            
-            {/* If there are less than 3 products from API, show placeholders */}
-            {products.length < 3 && (
-              Array.from({ length: 3 - products.length }).map((_, index) => (
-                <div key={`placeholder-${index}`} className="bg-white p-6 rounded-2xl shadow-sm">
-                  <div className="aspect-w-1 aspect-h-1 bg-gray-100 rounded-xl mb-4"></div>
-                  <div className="h-6 bg-gray-100 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-100 rounded w-1/4 mb-4"></div>
-                  <div className="h-10 bg-gray-100 rounded"></div>
-                </div>
-              ))
+          <>
+            {products.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {products.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
+                <p className="text-lg text-gray-700 mb-4">
+                  Unable to load products at this time.
+                </p>
+                <p className="text-sm text-gray-500 mb-6">
+                  Please check your Shopify connection settings or try again later.
+                </p>
+              </div>
             )}
-          </div>
+          </>
         )}
         
         {/* Show All Products Button */}
         <div className="text-center mt-12">
-          <button className="btn btn-primary">
+          <Link href="/products" className="btn btn-primary">
             View All Products
-          </button>
+          </Link>
         </div>
       </div>
     </section>
