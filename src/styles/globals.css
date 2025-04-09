@@ -4,8 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 31, 28;
+  --background-end-rgb: 20, 45, 41;
+}
+
 html {
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -13,8 +20,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  background-color: #ffffff;
-  color: #111827;
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  color: rgb(var(--foreground-rgb));
+  min-height: 100vh;
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-eco-dark-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-eco-green-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-eco-green-500;
+  }
 }
 
 @layer components {
@@ -23,11 +50,15 @@ body {
   }
 
   .btn-primary {
-    @apply bg-forest-green-500 text-white hover:bg-forest-green-600;
+    @apply bg-eco-green-500 text-eco-dark border border-eco-green-500 hover:bg-eco-green-400 hover:shadow-eco;
   }
 
   .btn-secondary {
-    @apply bg-soft-cream-100 text-forest-green-500 hover:bg-soft-cream-200;
+    @apply bg-transparent text-eco-green-400 border border-eco-green-500 hover:bg-eco-dark-50 hover:text-eco-green-300;
+  }
+
+  .btn-dark {
+    @apply bg-eco-dark-100 text-white border border-eco-dark-200 hover:bg-eco-dark-200;
   }
 
   .container-custom {
@@ -35,11 +66,19 @@ body {
   }
 
   .section {
-    @apply py-12;
+    @apply py-16 md:py-24;
   }
 
-  .leaf-bg {
-    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16 12.24C16 14.74 13.5 17.24 11 17.24C8.5 17.24 7 15.74 7 13.24C7 10.74 9.5 9.24 12 9.24C14.5 9.24 16 10.74 16 12.24Z' fill='%232D6A4F' fill-opacity='0.05'/%3E%3C/svg%3E");
+  .card-eco {
+    @apply bg-eco-dark-50 border border-eco-dark-200 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-eco;
+  }
+
+  .eco-glow {
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+  }
+
+  .grid-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16 12.24C16 14.74 13.5 17.24 11 17.24C8.5 17.24 7 15.74 7 13.24C7 10.74 9.5 9.24 12 9.24C14.5 9.24 16 10.74 16 12.24Z' fill='%2300E676' fill-opacity='0.05'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 48px 48px;
   }

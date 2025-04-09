@@ -9,6 +9,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'eco-dark': {
+          DEFAULT: '#0A1F1C',
+          50: '#142D29',
+          100: '#183835',
+          200: '#1D4340',
+          300: '#245651',
+          400: '#2D6A62',
+          900: '#051210',
+        },
+        'eco-green': {
+          DEFAULT: '#00E676',
+          50: '#E0FFF2',
+          100: '#B3FFD9',
+          200: '#85FFB4',
+          300: '#57FF8F',
+          400: '#2AFF6A',
+          500: '#00E676',
+          600: '#00B35C',
+          700: '#008041',
+          800: '#004D27',
+          900: '#001A0D',
+        },
         'forest-green': {
           DEFAULT: '#2D6A4F',
           50: '#E6F2EF',
@@ -43,6 +65,14 @@ module.exports = {
       borderRadius: {
         'xl': '1rem',
         '2xl': '1.5rem',
+      },
+      boxShadow: {
+        'eco': '0 0 15px rgba(0, 230, 118, 0.3)',
+        'eco-hover': '0 0 20px rgba(0, 230, 118, 0.5)',
+      },
+      backgroundImage: {
+        'eco-gradient': 'linear-gradient(to right, #00E676, #00B35C)',
+        'dark-gradient': 'linear-gradient(to right, #0A1F1C, #142D29)',
       },
     },
   },
