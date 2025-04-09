@@ -1,17 +1,9 @@
-import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import ProductGrid from '@/components/ProductGrid';
-import CTABanner from '@/components/CTABanner';
-import { getAllProducts } from '@/lib/shopify';
-import { Product } from '@/types';
+import { useState } from 'react';
 
-interface HomePageProps {
-  products: Product[];
-}
+export default function Home() {
+  const [count, setCount] = useState(0);
 
-export default function Home({ products }: HomePageProps) {
   return (
     <>
       <Head>
@@ -21,37 +13,64 @@ export default function Home({ products }: HomePageProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Hero />
-        <Features />
-        <ProductGrid products={products} />
-        <CTABanner />
-      </main>
+      <div style={{ 
+        padding: '2rem', 
+        maxWidth: '1200px', 
+        margin: '0 auto', 
+        fontFamily: 'system-ui, sans-serif',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <h1 style={{ 
+          fontSize: '2.5rem',
+          color: '#2F6538',
+          textAlign: 'center',
+          marginBottom: '2rem'
+        }}>
+          Nazka.Tech Eco-Friendly Accessories
+        </h1>
+        
+        <p style={{
+          fontSize: '1.2rem',
+          textAlign: 'center',
+          maxWidth: '800px',
+          margin: '0 auto 3rem auto',
+          color: '#333'
+        }}>
+          Sustainable tech accessories for the environmentally conscious consumer.
+        </p>
+
+        <div style={{
+          marginBottom: '2rem',
+          padding: '1rem',
+          backgroundColor: '#e9f5f0',
+          borderRadius: '8px',
+          textAlign: 'center'
+        }}>
+          <p>Counter: {count}</p>
+          <button 
+            onClick={() => setCount(count + 1)}
+            style={{
+              backgroundColor: '#2F6538',
+              color: 'white',
+              padding: '0.5rem 1rem',
+              borderRadius: '4px',
+              border: 'none',
+              marginTop: '0.5rem',
+              cursor: 'pointer'
+            }}
+          >
+            Increment
+          </button>
+        </div>
+
+        <p>
+          This is a simplified version of our homepage to diagnose rendering issues.
+        </p>
+      </div>
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const products = await getAllProducts();
-    
-    // For client-side rendering convenience,
-    // ensure we always return an array even if there's an error
-    return {
-      props: {
-        products: products.slice(0, 6), // Get first 6 products for the homepage
-      },
-      revalidate: 10, // Re-generate the page every 10 seconds for development
-    };
-  } catch (error) {
-    console.error('Error in getStaticProps:', error);
-    
-    // Return empty products array in case of error
-    return {
-      props: {
-        products: [],
-      },
-      revalidate: 10, // Retry sooner in case of error
-    };
-  }
-};
