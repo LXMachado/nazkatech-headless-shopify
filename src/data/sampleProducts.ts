@@ -10,7 +10,7 @@ export const sampleProducts: Product[] = [
     handle: 'biodegradable-phone-case',
     price: '29.99',
     currencyCode: 'USD',
-    image: 'https://dummyimage.com/600x400/2F6538/FFFFFF.png&text=Biodegradable+Phone+Case',
+    image: '/images/product-1.svg',
     imageAlt: 'Biodegradable phone case in forest green color',
     variants: [
       {
@@ -44,7 +44,7 @@ export const sampleProducts: Product[] = [
     handle: 'solar-power-bank',
     price: '49.99',
     currencyCode: 'USD',
-    image: 'https://dummyimage.com/600x400/2F6538/FFFFFF.png&text=Solar+Power+Bank',
+    image: '/images/product-2.svg',
     imageAlt: 'Portable solar power bank with solar panel',
     variants: [
       {
@@ -71,7 +71,7 @@ export const sampleProducts: Product[] = [
     handle: 'recycled-laptop-sleeve',
     price: '34.99',
     currencyCode: 'USD',
-    image: 'https://dummyimage.com/600x400/2F6538/FFFFFF.png&text=Recycled+Laptop+Sleeve',
+    image: '/images/product-3.svg',
     imageAlt: 'Recycled laptop sleeve in dark green color',
     variants: [
       {
@@ -105,7 +105,7 @@ export const sampleProducts: Product[] = [
     handle: 'bamboo-wireless-charger',
     price: '39.99',
     currencyCode: 'USD',
-    image: 'https://dummyimage.com/600x400/2F6538/FFFFFF.png&text=Bamboo+Wireless+Charger',
+    image: '/images/product-4.svg',
     imageAlt: 'Bamboo wireless charging pad',
     variants: [
       {
@@ -132,7 +132,7 @@ export const sampleProducts: Product[] = [
     handle: 'eco-friendly-cable-organizer',
     price: '19.99',
     currencyCode: 'USD',
-    image: 'https://dummyimage.com/600x400/2F6538/FFFFFF.png&text=Cable+Organizer',
+    image: '/images/product-5.svg',
     imageAlt: 'Cable organizer with multiple charging cables neatly arranged',
     variants: [
       {
@@ -159,7 +159,7 @@ export const sampleProducts: Product[] = [
     handle: 'recycled-aluminum-laptop-stand',
     price: '45.99',
     currencyCode: 'USD',
-    image: 'https://dummyimage.com/600x400/2F6538/FFFFFF.png&text=Laptop+Stand',
+    image: '/images/product-6.svg',
     imageAlt: 'Adjustable aluminum laptop stand holding a laptop',
     variants: [
       {
