@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="leafGradient">
+            <stop stop-color="#00E676" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#00B35C" stop-opacity="0.6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="circleGradient">
+            <stop stop-color="#00E676" stop-opacity="0.3" offset="0%"></stop>
+            <stop stop-color="#00E676" stop-opacity="0.05" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Background Circle -->
+        <circle cx="400" cy="300" r="200" fill="url(#circleGradient)"></circle>
+        
+        <!-- Leaf Shape -->
+        <path d="M400,150 C500,150 550,250 550,350 C550,450 500,500 400,500 C300,500 250,450 250,350 C250,250 300,150 400,150 Z" fill="url(#leafGradient)" opacity="0.8"></path>
+        
+        <!-- Tech Circuit Lines -->
+        <path d="M300,300 L350,300 L350,250 L450,250 L450,350 L500,350" stroke="#00E676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"></path>
+        <path d="M310,340 L360,340 L360,390 L440,390 L440,290 L490,290" stroke="#00E676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"></path>
+        <path d="M330,270 L380,270 L380,220 L420,220 L420,320 L470,320" stroke="#00E676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"></path>
+        
+        <!-- Circuit Nodes -->
+        <circle cx="350" cy="300" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="450" cy="250" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="450" cy="350" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="360" cy="340" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="440" cy="390" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="440" cy="290" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="380" cy="270" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="420" cy="220" r="5" fill="#00E676" opacity="0.9"></circle>
+        <circle cx="420" cy="320" r="5" fill="#00E676" opacity="0.9"></circle>
+    </g>
+</svg>
