@@ -4,14 +4,33 @@ import Link from 'next/link';
 import { sampleProducts } from '@/data/sampleProducts';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
+import { getAllProducts } from '@/lib/shopify';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const { addToCart } = useCart();
 
   useEffect(() => {
-    // Use sample products for now
-    setProducts(sampleProducts);
+    async function loadProducts() {
+      try {
+        // This will now try to fetch from Shopify API since we changed DEVELOPMENT_MODE
+        const fetchedProducts = await getAllProducts();
+        console.log('Fetched products:', fetchedProducts);
+        
+        // Check if we got any products
+        if (fetchedProducts && fetchedProducts.length > 0) {
+          setProducts(fetchedProducts);
+        } else {
+          console.warn('No products fetched from API, using sample products');
+          setProducts(sampleProducts);
+        }
+      } catch (error) {
+        console.error('Error loading products:', error);
+        setProducts(sampleProducts);
+      }
+    }
+    
+    loadProducts();
   }, []);
 
   const handleAddToCart = (product: Product) => {
