@@ -28,13 +28,11 @@ const Hero: React.FC = () => {
           
           <div className="order-1 md:order-2 rounded-2xl overflow-hidden shadow-eco">
             <div className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden">
-              <Image 
+              {/* Using regular img tag instead of next/image for direct rendering */}
+              <img 
                 src="/images/nazka-hero.png"
                 alt="Nazka Tech - Ancient wisdom meets modern innovation"
-                fill
-                style={{ objectFit: "cover" }}
-                className="hover:scale-105 transition-transform duration-700"
-                priority
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-eco-dark-900 to-transparent opacity-70"></div>
               <div className="absolute bottom-0 left-0 w-full p-6 text-white">
