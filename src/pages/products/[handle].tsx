@@ -46,7 +46,7 @@ export default function ProductPage({ product }: ProductPageProps) {
   return (
     <>
       <Head>
-        <title>{product.title} | Nazka.Tech</title>
+        <title>{`${product.title} | Nazka.Tech`}</title>
         <meta name="description" content={product.description} />
       </Head>
       
