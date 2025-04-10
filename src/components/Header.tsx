@@ -28,11 +28,12 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="h-9 w-9 rounded-md bg-eco-green-500 flex items-center justify-center overflow-hidden relative">
-              <svg className="h-5 w-5 text-eco-dark" viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 5C11.729 5 5 11.729 5 20C5 28.271 11.729 35 20 35C28.271 35 35 28.271 35 20C35 11.729 28.271 5 20 5ZM15 12C15 10.895 15.895 10 17 10H23C24.105 10 25 10.895 25 12V16C25 17.105 24.105 18 23 18H20V28C20 29.105 19.105 30 18 30C16.895 30 16 29.105 16 28V18C16 16.895 16.895 16 18 16H23V12H17V16C17 17.105 16.105 18 15 18C13.895 18 13 17.105 13 16V12H15Z" />
-              </svg>
-              <div className="absolute inset-0 bg-eco-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="h-10 w-10 flex items-center justify-center overflow-hidden relative">
+              <img 
+                src="/images/nazka-logo.png"
+                alt="Nazka Tech Logo"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
             <div className="ml-2 relative flex flex-col">
               <span className="text-xl font-bold text-white group-hover:text-eco-green-400 transition-colors">Nazka</span>
