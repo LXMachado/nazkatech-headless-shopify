@@ -2,7 +2,7 @@ import { Product, ProductVariant, Collection, CartItem } from '@/types';
 import { sampleProducts, getSampleProductByHandle } from '@/data/sampleProducts';
 
 // Toggle to use sample products for development (no Shopify API connection)
-const DEVELOPMENT_MODE = true;
+const DEVELOPMENT_MODE = false;
 
 // Trim any spaces from the domain to prevent URL parsing errors
 const domain = (process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '').trim();
