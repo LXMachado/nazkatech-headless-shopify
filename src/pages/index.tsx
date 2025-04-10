@@ -5,6 +5,7 @@ import { sampleProducts } from '@/data/sampleProducts';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { getAllProducts } from '@/lib/shopify';
+import Hero from '@/components/Hero';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -61,114 +62,7 @@ export default function Home() {
       </Head>
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-eco-gradient opacity-5"></div>
-        
-        <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">
-                <span className="text-white">Shop Smarter,</span><br />
-                <span className="text-white">Live </span>
-                <span className="text-eco-green-400 eco-glow">Greener</span><br />
-                <span className="text-white">with Nazka.Tech</span>
-              </h1>
-              
-              <p className="text-xl text-gray-300 mb-10 leading-relaxed font-light max-w-lg">
-                Our mission is to provide eco-friendly tech products that promote a sustainable 
-                and mindful digital lifestyle.
-              </p>
-              
-              <div className="mb-12">
-                <Link href="/#products" className="btn btn-primary px-8 py-3 inline-flex items-center justify-center group">
-                  Shop Now
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="rounded-2xl p-6 bg-eco-dark-50 border border-eco-dark-200">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-eco-dark-100 mb-8">
-                  <span className="w-2 h-2 rounded-full bg-eco-green-400 mr-2"></span>
-                  <span className="text-sm text-gray-300">Eco-Friendly Living</span>
-                </div>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-eco-dark-200 mr-4 text-eco-green-400 font-semibold">1.</div>
-                    <div className="flex items-center justify-between flex-grow">
-                      <span className="text-white font-medium">Sustainability</span>
-                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-eco-dark-200 group-hover:bg-eco-green-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-eco-dark-200 mr-4 text-eco-green-400 font-semibold">2.</div>
-                    <div className="flex items-center justify-between flex-grow">
-                      <span className="text-white font-medium">Zero Waste</span>
-                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-eco-dark-200 group-hover:bg-eco-green-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-eco-dark-200 mr-4 text-eco-green-400 font-semibold">3.</div>
-                    <div className="flex items-center justify-between flex-grow">
-                      <span className="text-white font-medium">Community</span>
-                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-eco-dark-200 group-hover:bg-eco-green-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start group">
-                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-eco-dark-200 mr-4 text-eco-green-400 font-semibold">4.</div>
-                    <div className="flex items-center justify-between flex-grow">
-                      <span className="text-white font-medium">High-Quality Design</span>
-                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-eco-dark-200 group-hover:bg-eco-green-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative mx-auto w-full max-w-md">
-              <div className="relative z-10 bg-eco-dark-50 rounded-3xl overflow-hidden shadow-eco border border-eco-dark-200">
-                <div className="aspect-square h-auto flex items-center justify-center relative p-8 bg-gradient-to-br from-eco-dark-50 to-eco-dark-100">
-                  <img 
-                    src="/images/product-2.svg"
-                    alt="Eco-friendly solar power bank"
-                    className="relative z-10 w-3/4 h-3/4 object-contain"
-                  />
-                </div>
-              </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-eco-green-500 opacity-10 blur-3xl -z-10"></div>
-              
-              <div className="absolute -bottom-10 right-10 transform rotate-12">
-                <p className="text-sm text-gray-400 max-w-[180px]">
-                  Embrace Sustainable Living with Every Purchase
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Features Section */}
       <section className="py-24 bg-eco-dark-50 border-y border-eco-dark-200">
