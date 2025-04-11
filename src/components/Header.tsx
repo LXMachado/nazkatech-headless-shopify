@@ -46,7 +46,7 @@ const Header: React.FC = () => {
             <Link href="/" className="text-white hover:text-eco-green-400 font-medium transition-colors">
               Home
             </Link>
-            <Link href="/#products" className="text-white hover:text-eco-green-400 font-medium transition-colors">
+            <Link href="/products" className="text-white hover:text-eco-green-400 font-medium transition-colors">
               Products
             </Link>
             <Link href="/#about" className="text-white hover:text-eco-green-400 font-medium transition-colors">
@@ -90,7 +90,7 @@ const Header: React.FC = () => {
               </svg>
             </button>
             
-            <Link href="/#products" className="hidden md:block ml-6">
+            <Link href="/products" className="hidden md:block ml-6">
               <button className="btn btn-primary text-xs md:text-sm px-4 py-2">
                 Shop Now
               </button>
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
             >
               Home
             </Link>
-            <Link href="/#products" 
+            <Link href="/products" 
               className="px-4 py-2 text-white hover:bg-eco-dark-200 hover:text-eco-green-400 rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -126,9 +126,11 @@ const Header: React.FC = () => {
               Sustainability
             </Link>
             <div className="px-4 py-2">
-              <button className="btn btn-primary w-full py-2 text-sm">
-                Shop Now
-              </button>
+              <Link href="/products" onClick={() => setIsMobileMenuOpen(false)}>
+                <button className="btn btn-primary w-full py-2 text-sm">
+                  Shop Now
+                </button>
+              </Link>
             </div>
           </nav>
         </div>

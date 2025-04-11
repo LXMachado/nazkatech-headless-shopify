@@ -226,9 +226,9 @@ export default function Home() {
           </div>
           
           <div className="mt-16 text-center">
-            <Link href="/products" className="inline-flex items-center group">
-              <span className="text-eco-green-400 font-medium mr-2 group-hover:mr-3 transition-all">View All Products</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-eco-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <Link href="/products" className="btn btn-primary inline-flex items-center group">
+              <span className="mr-2">View All Products</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>

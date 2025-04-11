@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
               Discover our range of eco-friendly tech accessories that honor ancient wisdom while embracing modern innovation.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/#products" className="btn btn-primary">
+              <Link href="/products" className="btn btn-primary">
                 Shop Now
               </Link>
               <Link href="/#sustainability" className="btn btn-secondary">
