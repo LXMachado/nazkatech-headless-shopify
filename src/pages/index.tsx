@@ -241,19 +241,25 @@ export default function Home() {
         <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div className="order-2 lg:order-1">
-              <div className="relative overflow-hidden rounded-2xl h-80">
-                <div className="absolute inset-0 bg-eco-dark-50 opacity-60"></div>
-                <div className="relative h-full flex items-center justify-center p-8">
-                  <img 
-                    src="/images/mission.svg"
-                    alt="Eco technology concept"
-                    className="w-full h-full object-contain opacity-80"
-                  />
-                </div>
+              <div className="relative overflow-hidden rounded-2xl h-96">
+                <img 
+                  src="/images/eco-tech-lightbulbs.jpg"
+                  alt="Eco-friendly lightbulbs with plants growing inside"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
                 
                 {/* Decorative elements */}
-                <div className="absolute top-4 left-4 w-20 h-20 border-t-2 border-l-2 border-eco-green-500 rounded-tl-lg opacity-60"></div>
-                <div className="absolute bottom-4 right-4 w-20 h-20 border-b-2 border-r-2 border-eco-green-500 rounded-br-lg opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-eco-dark-900/60 to-transparent"></div>
+                <div className="absolute bottom-6 left-0 w-full px-6">
+                  <div className="flex items-center justify-between">
+                    <p className="text-white font-medium">Sustainable Technology</p>
+                    <div className="h-8 w-8 flex items-center justify-center rounded-full bg-eco-green-500 text-eco-dark-900">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
@@ -272,12 +278,22 @@ export default function Home() {
                 and empowers a greener future for generations to come.
               </p>
               
-              <Link href="/sustainability" className="btn btn-primary inline-flex items-center group">
-                Learn About Our Impact
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
+              <div className="flex items-start">
+                <Link href="/sustainability" className="btn btn-primary inline-flex items-center group">
+                  Learn About Our Impact
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+                
+                <div className="ml-8 hidden md:block">
+                  <img 
+                    src="/images/eco-tech-circuit.png" 
+                    alt="Eco tech circuit design"
+                    className="w-32 h-32 object-contain"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
