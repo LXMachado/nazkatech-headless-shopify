@@ -97,6 +97,20 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
+      {/* About Section */}
+      <section id="about" className="py-24 md:py-32 bg-eco-dark-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              About <span className="text-eco-green-400">Nazka.Tech</span>
+            </h2>
+            <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
+              At Nazka.Tech, we believe in harmonizing technology with nature. Our eco-friendly tech accessories are crafted with sustainable materials and innovative design to reduce environmental impact without compromising on quality or style. We are committed to a greener future, one product at a time.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section - Why Choose Us */}
       <section className="py-24 md:py-32 bg-eco-dark-50 border-y border-eco-dark-200/50 relative overflow-hidden">
         {/* Subtle background accent */}

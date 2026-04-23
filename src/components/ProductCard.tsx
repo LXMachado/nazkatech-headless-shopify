@@ -105,14 +105,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
         
-        <div className="flex space-x-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <button 
             onClick={handleAddToCart} 
-            className="flex-1 btn btn-primary"
+            className="flex-1 btn btn-primary min-w-0"
           >
             Add to Cart
           </button>
-          <Link href={`/products/${product.handle}`} className="btn btn-secondary">
+          <Link href={`/products/${product.handle}`} className="btn btn-secondary min-w-0 sm:min-w-[auto]">
             View
           </Link>
         </div>
