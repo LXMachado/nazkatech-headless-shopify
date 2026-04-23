@@ -207,13 +207,13 @@ export default function Home() {
                     <img
                       src={product.image}
                       alt={product.imageAlt}
-                      className="w-full h-full object-contain z-10 relative transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-contain relative z-0 transition-transform duration-700 group-hover:scale-110"
                     />
                     {/* Subtle ambient glow on hover */}
                     <div className="absolute inset-0 bg-eco-green-500/0 group-hover:bg-eco-green-500/5 transition-colors duration-500" />
 
                     {/* Quick action overlay */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-eco-dark-900/90 via-eco-dark-900/50 to-transparent px-4 py-4 sm:px-6 sm:py-8 transform translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-500 ease-out">
+                    <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-eco-dark-900/90 via-eco-dark-900/50 to-transparent px-4 py-4 sm:px-6 sm:py-8 transform translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-500 ease-out">
                       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <Link
                           href={`/products/${product.handle}`}

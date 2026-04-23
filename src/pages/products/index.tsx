@@ -137,13 +137,13 @@ export default function ProductsPage() {
                       <img 
                         src={product.image}
                         alt={product.imageAlt}
-                        className="w-full h-full object-contain z-10 relative transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-contain relative z-0 transition-transform duration-500 group-hover:scale-105"
                       />
                       {/* Subtle glow effect on hover */}
                       <div className="absolute inset-0 bg-eco-green-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
                       
                       {/* Quick action overlay */}
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-eco-dark-900/80 to-transparent px-4 py-4 sm:px-6 sm:py-6 transform translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300">
+                      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-eco-dark-900/80 to-transparent px-4 py-4 sm:px-6 sm:py-6 transform translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300">
                         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
                           <Link href={`/products/${product.handle}`}
                             className="w-full sm:w-auto text-center sm:text-left text-eco-green-400 hover:text-eco-green-300 text-sm font-medium underline underline-offset-4 decoration-eco-green-800 hover:decoration-eco-green-500 transition-colors">
