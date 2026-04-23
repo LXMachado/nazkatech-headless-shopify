@@ -213,11 +213,11 @@ export default function Home() {
                     <div className="absolute inset-0 bg-eco-green-500/0 group-hover:bg-eco-green-500/5 transition-colors duration-500" />
 
                     {/* Quick action overlay */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-eco-dark-900/90 via-eco-dark-900/50 to-transparent py-8 px-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                      <div className="flex items-center justify-between">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-eco-dark-900/90 via-eco-dark-900/50 to-transparent px-4 py-4 sm:px-6 sm:py-8 transform translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-500 ease-out">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <Link
                           href={`/products/${product.handle}`}
-                          className="text-sm font-semibold text-white hover:text-eco-green-400 transition-colors inline-flex items-center gap-2"
+                          className="w-full sm:w-auto text-sm font-semibold text-white hover:text-eco-green-400 transition-colors inline-flex items-center justify-center sm:justify-start gap-2"
                         >
                           View Details
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -226,7 +226,7 @@ export default function Home() {
                         </Link>
                         <button
                           onClick={() => handleAddToCart(product)}
-                          className="bg-eco-green-500 hover:bg-eco-green-400 text-eco-dark-900 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 hover:shadow-eco flex items-center gap-2"
+                          className="w-full sm:w-auto bg-eco-green-500 hover:bg-eco-green-400 text-eco-dark-900 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 hover:shadow-eco inline-flex items-center justify-center gap-2 whitespace-nowrap"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
@@ -335,16 +335,16 @@ export default function Home() {
                 </div>
 
                 {/* Floating stat card */}
-                <div className="absolute -bottom-6 -right-4 md:-right-6 glass-card rounded-2xl px-5 py-4 shadow-xl border border-eco-green-500/10">
+                <div className="absolute bottom-3 right-3 md:-bottom-6 md:-right-6 glass-card rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-xl border border-eco-green-500/10 max-w-[calc(100%-1.5rem)]">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-eco-green-500/15 flex items-center justify-center">
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-eco-green-500/15 flex items-center justify-center shrink-0">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-eco-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-white">10k+</p>
-                      <p className="text-xs text-gray-400">Trees Planted</p>
+                      <p className="text-base md:text-lg font-bold text-white">10k+</p>
+                      <p className="text-[11px] md:text-xs text-gray-400">Trees Planted</p>
                     </div>
                   </div>
                 </div>
