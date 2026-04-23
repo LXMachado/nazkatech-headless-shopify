@@ -10,11 +10,16 @@ const Footer: React.FC = () => {
           <div className="md:col-span-5">
             <div className="flex items-center mb-6">
               <div className="h-10 w-10 flex items-center justify-center overflow-hidden">
-                <img
-                  src="/images/nazka-logo.png"
-                  alt="Nazka Tech Logo"
-                  className="w-full h-full object-contain"
-                />
+                <svg viewBox="0 0 40 40" className="h-10 w-10">
+                  <defs>
+                    <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#00E676" />
+                      <stop offset="100%" stopColor="#00E676" stopOpacity="0.6" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient)" />
+                  <path d="M20 8 L20 32 M12 20 L28 20" stroke="rgb(10,31,28)" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
               </div>
               <div className="ml-2.5">
                 <span className="text-xl font-bold text-white tracking-tight">
@@ -66,18 +71,21 @@ const Footer: React.FC = () => {
               Quick Links
             </h3>
             <ul className="space-y-4">
-              {['Products', 'About Us', 'Sustainability'].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-eco-green-400 transition-colors duration-300 text-sm"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { label: 'Products', href: '/products' },
+                { label: 'About Us', href: '/#about' },
+                { label: 'Sustainability', href: '/#sustainability' },
+                { label: 'Contact', href: '/contact' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="text-gray-400 hover:text-eco-green-400 transition-colors duration-300 text-sm"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -91,8 +99,7 @@ const Footer: React.FC = () => {
                 { label: 'FAQ', href: '/faq' },
                 { label: 'Shipping Policy', href: '/shipping-policy' },
                 { label: 'Returns & Exchanges', href: '/returns-exchanges' },
-                { label: 'Privacy Policy', href: '/privacy' },
-                { label: 'Terms of Service', href: '/terms' },
+                { label: 'Contact', href: '/contact' },
               ].map((item) => (
                 <li key={item.label}>
                   <a
