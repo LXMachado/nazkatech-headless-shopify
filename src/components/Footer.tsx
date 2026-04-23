@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
               Quick Links
             </h3>
             <ul className="space-y-4">
-              {['Products', 'About Us', 'Sustainability', 'Blog', 'Contact'].map(
+              {['Products', 'About Us', 'Sustainability'].map(
                 (item) => (
                   <li key={item}>
                     <a
@@ -88,18 +88,18 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-4">
               {[
-                'FAQ',
-                'Shipping Policy',
-                'Returns & Exchanges',
-                'Privacy Policy',
-                'Terms of Service',
+                { label: 'FAQ', href: '/faq' },
+                { label: 'Shipping Policy', href: '/shipping-policy' },
+                { label: 'Returns & Exchanges', href: '/returns-exchanges' },
+                { label: 'Privacy Policy', href: '/privacy' },
+                { label: 'Terms of Service', href: '/terms' },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <a
-                    href="#"
+                    href={item.href}
                     className="text-gray-400 hover:text-eco-green-400 transition-colors duration-300 text-sm"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}
