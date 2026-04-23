@@ -28,8 +28,8 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ${
         isScrolled
-          ? 'glass shadow-lg shadow-black/10 py-3'
-          : 'bg-transparent py-5'
+          ? 'glass shadow-xl shadow-black/20 py-3'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="container-custom">
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
             {/* Cart Button */}
             <button
               onClick={toggleCart}
-              className="relative p-2.5 text-gray-300 hover:text-white transition-all duration-300 rounded-xl hover:bg-white/5"
+              className="relative p-2.5 text-gray-200 hover:text-white transition-all duration-300 rounded-xl border border-white/10 hover:border-eco-green-500/40 hover:bg-white/5"
               aria-label="Cart"
             >
               <svg
@@ -131,7 +131,7 @@ const Header: React.FC = () => {
             {/* Desktop CTA */}
             <Link
               href="/products"
-              className="hidden md:inline-flex btn btn-primary text-sm px-5 py-2.5 ml-2"
+              className="hidden md:inline-flex btn btn-primary text-sm px-6 py-2.5 ml-2 rounded-full shadow-lg shadow-eco-green-500/25"
             >
               Shop Now
             </Link>

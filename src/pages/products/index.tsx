@@ -11,6 +11,24 @@ export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { addToCart } = useCart();
+  const productPositioning: Record<string, { name: string; benefit: string }> = {
+    'biodegradable-phone-case': {
+      name: 'Biodegradable MagSafe Case',
+      benefit: 'Plant-based material • Shock resistant',
+    },
+    'solar-power-bank': {
+      name: 'Solar Fast-Charge Power Bank',
+      benefit: 'Clean energy backup • 10,000mAh+',
+    },
+    'recycled-laptop-sleeve': {
+      name: 'Recycled Laptop Sleeve Pro',
+      benefit: 'Recycled textiles • Water resistant',
+    },
+    'bamboo-wireless-charger': {
+      name: 'Bamboo Wireless Charging Pad',
+      benefit: 'Sustainable bamboo • Fast Qi charging',
+    },
+  };
 
   useEffect(() => {
     async function loadProducts() {
@@ -130,10 +148,10 @@ export default function ProductsPage() {
           ) : (
             // Products grid
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
                 {products.map((product) => (
                   <div key={product.id} className="group relative">
-                    <div className="aspect-square bg-eco-dark-50 rounded-2xl flex items-center justify-center relative p-6 border border-eco-dark-200 overflow-hidden">
+                    <div className="aspect-square bg-eco-dark-50 rounded-2xl flex items-center justify-center relative p-4 md:p-6 border border-eco-dark-200 overflow-hidden">
                       <img 
                         src={product.image}
                         alt={product.imageAlt}
@@ -143,11 +161,11 @@ export default function ProductsPage() {
                       <div className="absolute inset-0 bg-eco-green-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
                       
                       {/* Quick action overlay */}
-                      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-eco-dark-900/80 to-transparent px-4 py-4 sm:px-6 sm:py-6 transform translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300">
+                      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-eco-dark-900/80 to-transparent px-4 py-3 sm:px-6 sm:py-6 transform translate-y-full group-hover:translate-y-0 group-focus-within:translate-y-0 transition-transform duration-300">
                         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
                           <Link href={`/products/${product.handle}`}
                             className="w-full sm:w-auto text-center sm:text-left text-eco-green-400 hover:text-eco-green-300 text-sm font-medium underline underline-offset-4 decoration-eco-green-800 hover:decoration-eco-green-500 transition-colors">
-                            View Details
+                            Quick View
                           </Link>
             <button 
               onClick={() => handleAddToCart(product)}
@@ -162,17 +180,17 @@ export default function ProductsPage() {
                       </div>
                     </div>
                     
-                    <div className="mt-4 px-2">
+                    <div className="mt-3 px-1 md:px-2">
                       <div className="flex justify-between items-center">
-                        <h3 className="font-medium text-lg text-white">{product.title}</h3>
+                        <h3 className="font-medium text-base md:text-lg text-white">
+                          {productPositioning[product.handle]?.name || product.title}
+                        </h3>
                         <span className="text-eco-green-400 font-medium">
                           ${product.price}
                         </span>
                       </div>
-                      <p className="text-gray-400 text-sm mt-1">
-                        {product.description.length > 60 
-                          ? `${product.description.substring(0, 60)}...` 
-                          : product.description}
+                      <p className="text-gray-300 text-sm md:text-[15px] mt-1 line-clamp-2">
+                        {productPositioning[product.handle]?.benefit || product.description}
                       </p>
                     </div>
                   </div>

@@ -83,6 +83,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors">Contact</Link>
                 </li>
               </ul>
+
+              <h4 className="text-white font-medium mt-8 mb-3 text-base">Support</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Shipping Policy</Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Returns & Exchanges</Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">FAQ</Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Contact Us</Link>
+                </li>
+              </ul>
             </div>
             
             <div>
@@ -111,8 +127,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </div>
           
-          <div className="border-t border-eco-dark-200 mt-12 pt-8 text-center text-gray-500 text-sm">
+          <div className="border-t border-eco-dark-200 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+              <p className="text-sm text-gray-300">★★★★★ 1,200+ verified customer reviews</p>
+              <div className="flex items-center gap-2">
+                {['VISA', 'MASTERCARD', 'AMEX', 'PAYPAL'].map((method) => (
+                  <span
+                    key={method}
+                    className="text-[10px] font-semibold tracking-wider text-gray-300 border border-eco-dark-200 rounded-md px-2 py-1 bg-eco-dark-200/40"
+                  >
+                    {method}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="text-center text-gray-500 text-sm">
             <p>© 2025 Nazka.Tech. All rights reserved. Pioneering sustainable technology.</p>
+            </div>
           </div>
         </div>
       </footer>

@@ -82,6 +82,25 @@ export default function Home() {
     },
   ];
 
+  const productPositioning: Record<string, { name: string; benefit: string }> = {
+    'biodegradable-phone-case': {
+      name: 'Biodegradable MagSafe Case',
+      benefit: 'Plant-based material • Shock resistant',
+    },
+    'solar-power-bank': {
+      name: 'Solar Fast-Charge Power Bank',
+      benefit: 'Clean energy backup • 10,000mAh+',
+    },
+    'recycled-laptop-sleeve': {
+      name: 'Recycled Laptop Sleeve Pro',
+      benefit: 'Recycled textiles • Water resistant',
+    },
+    'bamboo-wireless-charger': {
+      name: 'Bamboo Wireless Charging Pad',
+      benefit: 'Sustainable bamboo • Fast Qi charging',
+    },
+  };
+
   return (
     <>
       <Head>
@@ -95,7 +114,10 @@ export default function Home() {
       </Head>
 
       {/* Hero Section */}
-      <Hero />
+      <Hero
+        featuredProductImage={products[0]?.image}
+        featuredProductName={products[0]?.title}
+      />
 
       {/* About Section */}
       <section id="about" className="py-24 md:py-32 bg-eco-dark-50">
@@ -184,6 +206,19 @@ export default function Home() {
       {/* Products Section */}
       <section id="products" className="py-24 md:py-32 relative">
         <div className="container-custom">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-12 md:mb-14">
+            {[
+              'Free Shipping Over $80',
+              '30 Day Returns',
+              'Eco Materials Certified',
+              'Secure Checkout',
+            ].map((item) => (
+              <div key={item} className="rounded-xl border border-eco-dark-200/60 bg-eco-dark-100/50 px-3 py-3 text-center">
+                <p className="text-xs md:text-sm text-gray-200 font-medium">{item}</p>
+              </div>
+            ))}
+          </div>
+
           <div className="text-center mb-16 md:mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-eco-dark-100 border border-eco-dark-200 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-eco-green-400"></span>
@@ -192,7 +227,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-balance">
               Featured Products
             </h2>
-            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-balance">
+            <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-balance">
               Explore our range of eco-friendly tech accessories that combine style,
               functionality, and sustainability.
             </p>
@@ -201,9 +236,9 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {products.slice(0, 3).map((product) => (
               <div key={product.id} className="group">
-                <div className="bg-eco-dark-100/40 border border-eco-dark-200/50 rounded-2xl overflow-hidden transition-all duration-500 hover:border-eco-green-500/20 hover:shadow-eco hover:-translate-y-1">
+                <div className="bg-eco-dark-100/40 border border-eco-dark-200/50 rounded-2xl overflow-hidden transition-all duration-500 hover:border-eco-green-500/20 hover:shadow-eco hover:-translate-y-1 hover:shadow-2xl hover:shadow-eco-green-500/10">
                   {/* Image Container */}
-                  <div className="aspect-square bg-eco-dark-50/50 relative p-8 overflow-hidden">
+                  <div className="aspect-square bg-eco-dark-50/50 relative p-5 md:p-8 overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.imageAlt}
@@ -219,7 +254,7 @@ export default function Home() {
                           href={`/products/${product.handle}`}
                           className="w-full sm:w-auto text-sm font-semibold text-white hover:text-eco-green-400 transition-colors inline-flex items-center justify-center sm:justify-start gap-2"
                         >
-                          View Details
+                          Quick View
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                           </svg>
@@ -238,10 +273,10 @@ export default function Home() {
                   </div>
 
                   {/* Product Info */}
-                  <div className="p-6">
+                  <div className="p-4 md:p-6">
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <h3 className="font-semibold text-lg text-white group-hover:text-eco-green-50 transition-colors leading-snug">
-                        {product.title}
+                        {productPositioning[product.handle]?.name || product.title}
                       </h3>
                       <span className="text-eco-green-400 font-bold text-lg shrink-0">
                         ${product.price}
@@ -266,8 +301,8 @@ export default function Home() {
                       <span className="text-xs text-gray-500 font-medium">4.8</span>
                     </div>
 
-                    <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">
-                      {product.description}
+                    <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-2">
+                      {productPositioning[product.handle]?.benefit || product.description}
                     </p>
                   </div>
                 </div>
@@ -359,14 +394,28 @@ export default function Home() {
               </div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-balance">
-                Embrace Sustainable Living with{' '}
-                <span className="text-eco-green-400">Every Purchase</span>
+                Why <span className="text-eco-green-400">Nazka.Tech</span>?
               </h2>
 
-              <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg text-balance">
-                At Nazka.Tech, every purchase reverberates with environmental responsibility
-                and empowers a greener future for generations to come.
+              <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-lg text-balance">
+                We build accessories that pair sustainable materials with premium
+                design and long-lasting performance.
               </p>
+
+              <ul className="space-y-3 mb-10 text-gray-300">
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-eco-green-400"></span>
+                  Sustainable materials with certified sourcing
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-eco-green-400"></span>
+                  Premium design inspired by heritage craftsmanship
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-eco-green-400"></span>
+                  Long-lasting durability for everyday use
+                </li>
+              </ul>
 
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-6 mb-10">
@@ -389,7 +438,7 @@ export default function Home() {
                   href="/sustainability"
                   className="btn btn-primary px-8 py-3.5"
                 >
-                  Learn About Our Impact
+                  Discover Our Materials
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
