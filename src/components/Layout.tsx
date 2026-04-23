@@ -30,10 +30,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div className="md:col-span-2">
               <Link href="/" className="inline-flex items-center mb-6 group">
-                <div className="h-10 w-10 rounded-md bg-eco-green-500 flex items-center justify-center">
-                  <svg className="h-6 w-6 text-eco-dark" viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 5C11.729 5 5 11.729 5 20C5 28.271 11.729 35 20 35C28.271 35 35 28.271 35 20C35 11.729 28.271 5 20 5ZM15 12C15 10.895 15.895 10 17 10H23C24.105 10 25 10.895 25 12V16C25 17.105 24.105 18 23 18H20V28C20 29.105 19.105 30 18 30C16.895 30 16 29.105 16 28V18C16 16.895 16.895 16 18 16H23V12H17V16C17 17.105 16.105 18 15 18C13.895 18 13 17.105 13 16V12H15Z" />
-                  </svg>
+                <div className="h-10 w-10 rounded-md bg-eco-dark-200/80 border border-eco-dark-200 flex items-center justify-center overflow-hidden p-1">
+                  <img
+                    src="/images/nazka-logo.png"
+                    alt="Nazka Tech Logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div className="ml-3">
                   <span className="text-2xl font-bold text-white group-hover:text-eco-green-400 transition-colors">Nazka.Tech</span>
@@ -87,13 +89,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <h4 className="text-white font-medium mt-8 mb-3 text-base">Support</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Shipping Policy</Link>
+                  <Link href="/shipping-policy" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Shipping Policy</Link>
                 </li>
                 <li>
-                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Returns & Exchanges</Link>
+                  <Link href="/returns-and-exchanges" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Returns & Exchanges</Link>
                 </li>
                 <li>
-                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">FAQ</Link>
+                  <Link href="/faq" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">FAQ</Link>
                 </li>
                 <li>
                   <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors text-sm">Contact Us</Link>
