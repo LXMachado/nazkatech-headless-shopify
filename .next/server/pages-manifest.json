@@ -5,8 +5,11 @@
   "/products/[handle]": "pages/products/[handle].js",
   "/en-US/404": "pages/en-US/404.html",
   "/en-US/500": "pages/en-US/500.html",
+  "/en-US": "pages/en-US.html",
   "/en-US/products": "pages/en-US/products.html",
+  "/en-US/quality": "pages/en-US/quality.html",
+  "/en-US/technology": "pages/en-US/technology.html",
   "/en-US/test": "pages/en-US/test.html",
-  "/en-US/cart": "pages/en-US/cart.html",
-  "/en-US": "pages/en-US.html"
+  "/en-US/sustainability": "pages/en-US/sustainability.html",
+  "/en-US/cart": "pages/en-US/cart.html"
 }
