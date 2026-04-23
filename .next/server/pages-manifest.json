@@ -2,5 +2,11 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/": "pages/index.js"
+  "/products/[handle]": "pages/products/[handle].js",
+  "/en-US/404": "pages/en-US/404.html",
+  "/en-US/500": "pages/en-US/500.html",
+  "/en-US/products": "pages/en-US/products.html",
+  "/en-US/test": "pages/en-US/test.html",
+  "/en-US/cart": "pages/en-US/cart.html",
+  "/en-US": "pages/en-US.html"
 }

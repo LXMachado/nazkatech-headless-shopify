@@ -13,10 +13,13 @@
 html {
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 body {
@@ -27,59 +30,92 @@ body {
 
 @layer base {
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-eco-dark-100;
+    @apply bg-eco-dark-900;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-eco-green-600 rounded-full;
+    @apply bg-eco-dark-300 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-eco-green-500;
+    @apply bg-eco-green-600;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-6 py-3 rounded-xl transition-all duration-200 font-medium text-center inline-block;
+    @apply px-6 py-3 rounded-xl transition-all duration-300 font-semibold text-center inline-flex items-center justify-center gap-2;
   }
 
   .btn-primary {
-    @apply bg-eco-green-500 text-eco-dark border border-eco-green-500 hover:bg-eco-green-400 hover:shadow-eco;
+    @apply bg-eco-green-500 text-eco-dark-900 border border-eco-green-500 hover:bg-eco-green-400 hover:shadow-eco hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-secondary {
-    @apply bg-transparent text-eco-green-400 border border-eco-green-500 hover:bg-eco-dark-50 hover:text-eco-green-300;
+    @apply bg-transparent text-eco-green-400 border border-eco-green-500/60 hover:bg-eco-green-500/10 hover:border-eco-green-400 hover:text-eco-green-300;
   }
 
   .btn-dark {
     @apply bg-eco-dark-100 text-white border border-eco-dark-200 hover:bg-eco-dark-200;
   }
 
+  .btn-ghost {
+    @apply bg-transparent text-white border border-eco-dark-300 hover:bg-white/5 hover:border-white/20;
+  }
+
   .container-custom {
-    @apply max-w-7xl mx-auto px-4;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .section {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
 
   .card-eco {
-    @apply bg-eco-dark-50 border border-eco-dark-200 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-eco;
+    @apply bg-eco-dark-50 border border-eco-dark-200 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-eco;
   }
 
   .eco-glow {
-    text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+    text-shadow: 0 0 20px rgba(0, 230, 118, 0.4), 0 0 40px rgba(0, 230, 118, 0.15);
+  }
+
+  .glass {
+    @apply bg-eco-dark-900/70 backdrop-blur-xl border-b border-white/5;
+  }
+
+  .glass-card {
+    @apply bg-eco-dark-100/60 backdrop-blur-md border border-white/5;
   }
 
   .grid-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16 12.24C16 14.74 13.5 17.24 11 17.24C8.5 17.24 7 15.74 7 13.24C7 10.74 9.5 9.24 12 9.24C14.5 9.24 16 10.74 16 12.24Z' fill='%2300E676' fill-opacity='0.05'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16 12.24C16 14.74 13.5 17.24 11 17.24C8.5 17.24 7 15.74 7 13.24C7 10.74 9.5 9.24 12 9.24C14.5 9.24 16 10.74 16 12.24Z' fill='%2300E676' fill-opacity='0.04'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 48px 48px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0, 230, 118, 0.3), rgba(0, 230, 118, 0.05) 50%, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 }

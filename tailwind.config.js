@@ -65,14 +65,20 @@ module.exports = {
       borderRadius: {
         'xl': '1rem',
         '2xl': '1.5rem',
+        '3xl': '1.75rem',
       },
       boxShadow: {
-        'eco': '0 0 15px rgba(0, 230, 118, 0.3)',
-        'eco-hover': '0 0 20px rgba(0, 230, 118, 0.5)',
+        'eco': '0 0 30px rgba(0, 230, 118, 0.12)',
+        'eco-hover': '0 0 40px rgba(0, 230, 118, 0.2)',
+        'card': '0 4px 24px rgba(0, 0, 0, 0.15)',
+        'card-hover': '0 8px 40px rgba(0, 0, 0, 0.25)',
       },
       backgroundImage: {
         'eco-gradient': 'linear-gradient(to right, #00E676, #00B35C)',
         'dark-gradient': 'linear-gradient(to right, #0A1F1C, #142D29)',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },

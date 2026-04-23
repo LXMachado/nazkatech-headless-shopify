@@ -10,6 +10,8 @@ const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_
 const apiKey = process.env.SHOPIFY_API_KEY || '';
 const apiSecret = process.env.SHOPIFY_API_SECRET || '';
 const storePassword = process.env.SHOPIFY_STORE_PASSWORD || '';
+const hasStorefrontConfig = Boolean(domain && storefrontAccessToken);
+const hasAdminConfig = Boolean(domain && apiKey && storePassword);
 
 // For debugging
 console.log('Environment check:');
@@ -22,6 +24,13 @@ console.log('Store password available:', storePassword ? 'Yes' : 'No');
 
 // Admin REST API fetch function
 const shopifyAdminFetch = async (endpoint: string) => {
+  if (!hasAdminConfig) {
+    return {
+      status: 400,
+      body: { errors: [{ message: 'Missing Shopify Admin API environment variables' }] },
+    };
+  }
+
   try {
     // Don't include credentials in URL (will cause security errors)
     const apiUrl = `https://${domain}/admin/api/2023-07/${endpoint}`;
@@ -64,6 +73,13 @@ const shopifyAdminFetch = async (endpoint: string) => {
 
 // API fetch function with multiple auth options (Storefront API)
 const shopifyFetch = async ({ query, variables }: { query: string; variables?: any }) => {
+  if (!hasStorefrontConfig) {
+    return {
+      status: 400,
+      body: { errors: [{ message: 'Missing Shopify Storefront API environment variables' }] },
+    };
+  }
+
   try {
     // Set up the API URL for the Storefront API (using 2023-07 version as it's known to be stable)
     const apiUrl = `https://${domain}/api/2023-07/graphql.json`;
@@ -172,6 +188,11 @@ export async function getAllProducts(): Promise<Product[]> {
     return sampleProducts;
   }
 
+  if (!hasStorefrontConfig) {
+    console.warn('Shopify Storefront API env vars missing. Falling back to sample products.');
+    return sampleProducts;
+  }
+
   // If not in development mode, try using the Storefront API
   const query = `
     query GetAllProducts {
@@ -247,7 +268,12 @@ export async function getAllProducts(): Promise<Product[]> {
   // If Storefront API fails, try the Admin API
   console.log('Storefront API failed, falling back to Admin API...');
   console.error('Storefront API error:', response.body.errors);
-  
+
+  if (typeof window !== 'undefined') {
+    // Admin API credentials must remain server-side.
+    return [];
+  }
+
   return getProductsFromAdminAPI();
 }
 
@@ -314,6 +340,11 @@ export async function getProductByHandle(handle: string): Promise<Product | null
     console.log(`Using sample product with handle "${handle}" for development`);
     // Simulate API delay for more realistic development
     await new Promise(resolve => setTimeout(resolve, 500));
+    return getSampleProductByHandle(handle);
+  }
+
+  if (!hasStorefrontConfig) {
+    console.warn('Shopify Storefront API env vars missing. Falling back to sample product data.');
     return getSampleProductByHandle(handle);
   }
 
@@ -396,7 +427,12 @@ export async function getProductByHandle(handle: string): Promise<Product | null
   // If Storefront API fails, try the Admin API
   console.log('Storefront API failed to fetch product, falling back to Admin API...');
   console.error('Storefront API error:', response.body.errors);
-  
+
+  if (typeof window !== 'undefined') {
+    // Admin API credentials must remain server-side.
+    return null;
+  }
+
   return getProductByHandleFromAdminAPI(handle);
 }
 
@@ -411,6 +447,11 @@ export async function createCheckout(cartItems: CartItem[]): Promise<string | nu
     
     // Return a fake checkout URL for development
     return 'https://checkout.shopify.com/development-mode/sample-checkout';
+  }
+
+  if (!hasStorefrontConfig) {
+    console.warn('Shopify Storefront API env vars missing. Checkout cannot be created.');
+    return null;
   }
   
   // For production mode, use the real Shopify API
