@@ -74,13 +74,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <Link href="/products" className="text-gray-400 hover:text-eco-green-400 transition-colors">Products</Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-gray-400 hover:text-eco-green-400 transition-colors">About</Link>
+                  <Link href="/#about" className="text-gray-400 hover:text-eco-green-400 transition-colors">About</Link>
                 </li>
                 <li>
-                  <Link href="/sustainability" className="text-gray-400 hover:text-eco-green-400 transition-colors">Sustainability</Link>
+                  <Link href="/#sustainability" className="text-gray-400 hover:text-eco-green-400 transition-colors">Sustainability</Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-400 hover:text-eco-green-400 transition-colors">Contact</Link>
+                  <Link href="/#contact" className="text-gray-400 hover:text-eco-green-400 transition-colors">Contact</Link>
                 </li>
               </ul>
             </div>

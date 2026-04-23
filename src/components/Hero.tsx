@@ -113,7 +113,7 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* Bottom caption bar */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-8">
                   <div className="flex items-end justify-between">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-eco-green-400 mb-1.5">
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 glass-card rounded-2xl px-4 py-3 shadow-xl">
+              <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20 glass-card rounded-2xl px-4 py-3 shadow-xl">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-eco-green-500/20 flex items-center justify-center">
                     <svg

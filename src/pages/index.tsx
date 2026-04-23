@@ -335,7 +335,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating stat card */}
-                <div className="absolute bottom-3 right-3 md:-bottom-6 md:-right-6 glass-card rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-xl border border-eco-green-500/10 max-w-[calc(100%-1.5rem)]">
+                <div className="absolute bottom-3 right-3 md:bottom-0 md:right-6 md:translate-y-1/2 glass-card rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-xl border border-eco-green-500/10 max-w-[calc(100%-1.5rem)]">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-eco-green-500/15 flex items-center justify-center shrink-0">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-eco-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -461,6 +461,87 @@ export default function Home() {
             <p className="mt-4 text-xs text-gray-600">
               No spam, ever. Unsubscribe anytime.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 md:py-32 relative">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-eco-dark-100 border border-eco-dark-200 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-eco-green-400"></span>
+                <span className="text-sm font-medium text-gray-400">Contact</span>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-balance">
+                Let&apos;s Build A Greener Future Together
+              </h2>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
+                Reach out for product questions, support, partnerships, or wholesale
+                opportunities. Our team replies as quickly as possible.
+              </p>
+
+              <ul className="space-y-4 text-gray-300">
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-eco-green-400"></span>
+                  123 Eco Street, Green City
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-eco-green-400"></span>
+                  info@nazka.tech
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-eco-green-400"></span>
+                  +1 (555) 123-4567
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-eco-dark-100/50 border border-eco-dark-200/60 rounded-2xl p-6 md:p-8">
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div>
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-gray-300 mb-2">
+                    Name
+                  </label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    placeholder="Your name"
+                    className="w-full rounded-xl bg-eco-dark-50 border border-eco-dark-200 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-eco-green-500/40"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    placeholder="you@example.com"
+                    className="w-full rounded-xl bg-eco-dark-50 border border-eco-dark-200 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-eco-green-500/40"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    rows={5}
+                    placeholder="How can we help?"
+                    className="w-full rounded-xl bg-eco-dark-50 border border-eco-dark-200 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-eco-green-500/40"
+                  />
+                </div>
+
+                <button type="submit" className="btn btn-primary w-full sm:w-auto">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
