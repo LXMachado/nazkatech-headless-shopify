@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-gray-400 leading-relaxed mb-8 max-w-sm text-balance">
-              Creating tech accessories that don't cost the Earth. Our innovative products
+              Creating tech accessories that don&apos;t cost the Earth. Our innovative products
               are designed with sustainability at their core, using biodegradable materials
               and renewable energy sources.
             </p>
