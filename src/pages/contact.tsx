@@ -19,7 +19,7 @@ export default function ContactPage() {
               Get in <span className="text-eco-green-400">Touch</span>
             </h1>
             <p className="text-gray-300 text-lg">
-              Our Australian support team is here to help. Reach out and we'll respond within 24 business hours.
+              Our Australian support team is here to help. Reach out and we&apos;ll respond within 24 business hours.
             </p>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-                <p className="text-gray-300 mb-4">We'll respond within 24 business hours</p>
+                <p className="text-gray-300 mb-4">We&apos;ll respond within 24 business hours</p>
                 <a href="mailto:support@nazka.tech" className="text-eco-green-400 hover:underline font-medium">
                   support@nazka.tech
                 </a>

@@ -10,7 +10,7 @@ const Features: React.FC = () => {
             Our products are designed with the planet in mind, without compromising on quality or performance.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Biodegradable Feature */}
           <div className="bg-soft-cream-50 rounded-2xl p-6 md:p-8 text-center hover:shadow-lg transition-shadow duration-300">
@@ -24,7 +24,7 @@ const Features: React.FC = () => {
               Our products are made from plant-based materials that break down naturally, leaving no microplastics behind.
             </p>
           </div>
-          
+
           {/* Solar-Powered Feature */}
           <div className="bg-soft-cream-50 rounded-2xl p-6 md:p-8 text-center hover:shadow-lg transition-shadow duration-300">
             <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-forest-green-100 rounded-full text-forest-green-600">
@@ -37,7 +37,7 @@ const Features: React.FC = () => {
               Our power banks and chargers harness the power of the sun, giving you clean energy wherever you go.
             </p>
           </div>
-          
+
           {/* Recyclable Feature */}
           <div className="bg-soft-cream-50 rounded-2xl p-6 md:p-8 text-center hover:shadow-lg transition-shadow duration-300">
             <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-forest-green-100 rounded-full text-forest-green-600">
@@ -47,19 +47,19 @@ const Features: React.FC = () => {
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Recyclable</h3>
             <p className="text-gray-700">
-              When your product reaches the end of its life, we'll take it back and recycle it responsibly.
+              When your product reaches the end of its life, we&apos;ll take it back and recycle it responsibly.
             </p>
           </div>
         </div>
-        
+
         {/* Additional Info */}
         <div className="mt-16 p-6 md:p-8 bg-forest-green-50 rounded-2xl border border-forest-green-100">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-6 md:mb-0 md:mr-8">
               <h3 className="text-2xl font-semibold text-forest-green-800 mb-3">Our Environmental Commitment</h3>
               <p className="text-forest-green-700">
-                For every product sold, we plant a tree and offset the carbon footprint of shipping. 
-                We've partnered with environmental organizations to ensure our business practices 
+                For every product sold, we plant a tree and offset the carbon footprint of shipping.
+                We&apos;ve partnered with environmental organizations to ensure our business practices
                 are as green as our products.
               </p>
             </div>

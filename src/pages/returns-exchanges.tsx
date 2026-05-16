@@ -38,7 +38,7 @@ export default function ReturnsExchangesPage() {
                 30-Day Happiness Guarantee
               </h2>
               <p className="text-gray-300 text-lg">
-                If you're not 100% happy with your purchase, return it within 30 days for a full refund or exchange. No questions asked.
+                If you&apos;re not 100% happy with your purchase, return it within 30 days for a full refund or exchange. No questions asked.
               </p>
             </div>
 
@@ -123,7 +123,7 @@ export default function ReturnsExchangesPage() {
                 <div className="bg-eco-dark-200/30 p-5 rounded-xl">
                   <h3 className="font-semibold text-white mb-2">Exchanges</h3>
                   <p className="text-gray-300 text-sm">
-                    Want a different size or colour? Exchange is easy! Contact us and we'll help you swap your item. Additional shipping charges may apply for exchanges.
+                    Want a different size or colour? Exchange is easy! Contact us and we&apos;ll help you swap your item. Additional shipping charges may apply for exchanges.
                   </p>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function ReturnsExchangesPage() {
                 Faulty or Damaged Items
               </h2>
               <p className="text-gray-300 mb-4">
-                If your item arrives damaged or is faulty, we apologise. Please contact us immediately with photos of the issue. We'll offer:
+                If your item arrives damaged or is faulty, we apologise. Please contact us immediately with photos of the issue. We&apos;ll offer:
               </p>
               <ul className="list-disc list-inside space-y-2 text-gray-300">
                 <li><strong>Repair</strong> – Where feasible and reasonable</li>
@@ -146,7 +146,7 @@ export default function ReturnsExchangesPage() {
                 <li><strong>Refund</strong> – Full refund including shipping</li>
               </ul>
               <p className="text-gray-300 mt-4">
-                You're also protected under Australian Consumer Law, which guarantees a remedy for major failures.
+                You&apos;re also protected under Australian Consumer Law, which guarantees a remedy for major failures.
               </p>
             </div>
 
