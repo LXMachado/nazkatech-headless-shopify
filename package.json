@@ -14,31 +14,20 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@tailwindcss/postcss": "^4.3.0",
-    "@types/node": "^25.8.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "autoprefixer": "^10.5.0",
-    "next": "^16.3.0-canary.21",
-    "postcss": "^8.5.26",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "tailwindcss": "^4.3.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.1",
+    "next": "^16.3.6",
+    "postcss": "^8.5.28",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   },
-  "overrides": {
-    "postcss": "$postcss",
-    "react-server-dom-webpack": "19.2.6",
-    "react-server-dom-turbopack": "19.2.6",
-    "react-server-dom-parcel": "19.2.6",
-    "brace-expansion@<2": "1.1.18",
-    "brace-expansion@>=3": "5.0.9",
-    "js-yaml": "4.3.1",
-    "sharp": "0.35.3",
-    "@babel/core": "7.29.7"
-  },
   "devDependencies": {
-    "eslint": "^9.39.4",
-    "eslint-config-next": "^16.3.0-canary.21"
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.6"
   }
 }
